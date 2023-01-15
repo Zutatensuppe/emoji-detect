@@ -1,0 +1,25 @@
+{
+  "name": "@zutatensuppe/emoji-detect",
+  "version": "1.0.0",
+  "description": "Extract emoji information from text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zutatensuppe/emoji-recognizer.git"
+  },
+  "keywords": [
+    "emoji"
+  ],
+  "author": "Zutatensuppe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zutatensuppe/emoji-recognizer/issues"
+  },
+  "homepage": "https://github.com/Zutatensuppe/emoji-recognizer#readme",
+  "devDependencies": {
+    "vitest": "^0.27.1"
+  }
+}
