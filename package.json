@@ -1,6 +1,6 @@
 {
   "name": "@zutatensuppe/emoji-detect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extract emoji information from text",
   "main": "./dist/emoji_detect.js",
   "module": "./dist/emoji_detect.mjs",
