@@ -1,11 +1,9 @@
 export declare const EMOJI_REGEX: RegExp;
-export declare const detect: (str: string) => {
-    codepoints: number[];
-}[];
+export declare const detectCodePoints: (str: string) => number[][];
+export declare const detectStrings: (str: string) => string[];
 declare const _default: {
-    detect: (str: string) => {
-        codepoints: number[];
-    }[];
+    detectCodePoints: (str: string) => number[][];
+    detectStrings: (str: string) => string[];
     EMOJI_REGEX: RegExp;
 };
 export default _default;

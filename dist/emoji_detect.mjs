@@ -1,4 +1,4 @@
-const p = [
+const i = [
   "🏳️‍🌈",
   "🏳️‍⚧️",
   "🇦🇨",
@@ -259,18 +259,31 @@ const p = [
   "🇿🇦",
   "🇿🇲",
   "🇿🇼"
-], e = new RegExp(`${p.join("|")}|(\\p{EPres}|\\p{ExtPict})(\\u200d(\\p{EPres}|\\p{ExtPict})\\ufe0f?)*`, "gu"), d = (c) => {
-  const o = [], t = c.match(e);
-  return t == null || t.forEach((n) => {
-    const s = [...n].map((E) => E.codePointAt(0));
-    o.push({ codepoints: s });
-  }), o;
-}, i = {
-  detect: d,
-  EMOJI_REGEX: e
+], s = new RegExp(`${i.join("|")}|(\\p{EPres}|\\p{ExtPict})(\\u200d(\\p{EPres}|\\p{ExtPict})\\ufe0f?)*`, "gu");
+function* c(o) {
+  const t = o.match(s);
+  if (t)
+    for (const e of t)
+      yield [...e].map((n) => n.codePointAt(0));
+}
+const r = (o) => {
+  const t = [];
+  for (const e of c(o))
+    t.push(e);
+  return t;
+}, d = (o) => {
+  const t = [];
+  for (const e of c(o))
+    t.push(e.map((n) => n.toString(16)).join("-"));
+  return t;
+}, f = {
+  detectCodePoints: r,
+  detectStrings: d,
+  EMOJI_REGEX: s
 };
 export {
-  e as EMOJI_REGEX,
-  i as default,
-  d as detect
+  s as EMOJI_REGEX,
+  f as default,
+  r as detectCodePoints,
+  d as detectStrings
 };
