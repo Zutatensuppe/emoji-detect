@@ -24,17 +24,33 @@ const FLAG_EMOTES = [
 
 export const EMOJI_REGEX = new RegExp(`${FLAG_EMOTES.join('|')}|(\\p{EPres}|\\p{ExtPict})(\\u200d(\\p{EPres}|\\p{ExtPict})\\ufe0f?)*`, 'gu')
 
-export const detect = (str: string) => {
-  const emotes: { codepoints: number[] }[] = []
+function *iterateCodePoints (str: string) {
   const matches = str.match(EMOJI_REGEX)
-  matches?.forEach((m: string) => {
-    const codepoints = [...m].map(e => e.codePointAt(0) as number)
-    emotes.push({ codepoints })
-  })
+  if (matches) {
+    for (const m of matches) {
+      yield [...m].map(e => e.codePointAt(0) as number)
+    }
+  }
+}
+
+export const detectCodePoints = (str: string): number[][] => {
+  const emotes: number[][] = []
+  for (const codePoints of iterateCodePoints(str)) {
+    emotes.push(codePoints)
+  }
+  return emotes
+}
+
+export const detectStrings = (str: string): string[] => {
+  const emotes: string[] = []
+  for (const codePoints of iterateCodePoints(str)) {
+    emotes.push(codePoints.map(cp => cp.toString(16)).join('-'))
+  }
   return emotes
 }
 
 export default {
-  detect,
+  detectCodePoints,
+  detectStrings,
   EMOJI_REGEX,
 }
