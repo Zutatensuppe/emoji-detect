@@ -10,8 +10,10 @@
       "import": "./dist/emoji_detect.mjs"
     }
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "build": "vite build && tsc --declaration --emitDeclarationOnly"
   },
   "repository": {
     "type": "git",

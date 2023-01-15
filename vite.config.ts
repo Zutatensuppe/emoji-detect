@@ -7,7 +7,7 @@ const fileName = {
   iife: `${PACKAGE_NAME}.iife.js`,
 };
 
-module.exports = defineConfig({
+export default defineConfig({
   base: './',
   build: {
     lib: {
@@ -16,5 +16,5 @@ module.exports = defineConfig({
       formats: ['es', 'cjs', 'iife'],
       fileName: (format) => fileName[format],
     }
-  }
+  },
 })
