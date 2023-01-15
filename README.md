@@ -1,1 +1,1 @@
-# emoji-recognizer
+# emoji-detect

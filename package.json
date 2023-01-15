@@ -2,13 +2,20 @@
   "name": "@zutatensuppe/emoji-detect",
   "version": "1.0.0",
   "description": "Extract emoji information from text",
-  "main": "index.js",
+  "main": "./dist/emoji_detect.js",
+  "module": "./dist/emoji_detect.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/emoji_detect.cjs",
+      "import": "./dist/emoji_detect.mjs"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zutatensuppe/emoji-recognizer.git"
+    "url": "git+https://github.com/Zutatensuppe/emoji-detect.git"
   },
   "keywords": [
     "emoji"
@@ -16,10 +23,12 @@
   "author": "Zutatensuppe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Zutatensuppe/emoji-recognizer/issues"
+    "url": "https://github.com/Zutatensuppe/emoji-detect/issues"
   },
-  "homepage": "https://github.com/Zutatensuppe/emoji-recognizer#readme",
+  "homepage": "https://github.com/Zutatensuppe/emoji-detect#readme",
   "devDependencies": {
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
     "vitest": "^0.27.1"
   }
 }
