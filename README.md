@@ -33,9 +33,9 @@ const emojiStrings = emojiDetect.detectStrings('🏳️‍🌈🍀🍀🐸')
 
 // emojiStrings will now be:
 [
-  [ '1f3f3-fe0f-200d-1f308' ], // rainbow flag
-  [ '1f340' ], // clover 1
-  [ '1f340' ], // clover 2
-  [ '1f438' ], // frog
+  '1f3f3-fe0f-200d-1f308', // rainbow flag
+  '1f340', // clover 1
+  '1f340', // clover 2
+  '1f438', // frog
 ]
 ```
