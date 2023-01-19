@@ -79,6 +79,13 @@ describe('detectCodePoints', () => {
       ],
     },
     {
+      _name: 'another pride flag', // from [win] + .
+      str: '🏳‍🌈', // code points: [ 0x1f3f3, 0x200d, 0x1f308 ]
+      expected: [
+        [ 0x1f3f3, 0xfe0f, 0x200d, 0x1f308 ],
+      ],
+    },
+    {
       _name: 'not pride flag',
       str: '🏳🌈',
       expected: [
