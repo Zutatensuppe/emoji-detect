@@ -259,31 +259,37 @@ const i = [
   "🇿🇦",
   "🇿🇲",
   "🇿🇼"
+], r = [
+  // two different rainbow flags (first is the broken one, when using windows)
+  { from: "🏳‍🌈", to: "🏳️‍🌈" }
 ], s = new RegExp(`${i.join("|")}|(\\p{EPres}|\\p{ExtPict})(\\u200d(\\p{EPres}|\\p{ExtPict})\\ufe0f?)*`, "gu");
-function* c(o) {
-  const t = o.match(s);
+function* c(n) {
+  const t = n.match(s);
   if (t)
-    for (const e of t)
-      yield [...e].map((n) => n.codePointAt(0));
+    for (let o of t) {
+      for (const e of r)
+        o = o.replace(e.from, e.to);
+      yield [...o].map((e) => e.codePointAt(0));
+    }
 }
-const r = (o) => {
+const f = (n) => {
   const t = [];
-  for (const e of c(o))
-    t.push(e);
+  for (const o of c(n))
+    t.push(o);
   return t;
-}, d = (o) => {
+}, d = (n) => {
   const t = [];
-  for (const e of c(o))
-    t.push(e.map((n) => n.toString(16)).join("-"));
+  for (const o of c(n))
+    t.push(o.map((e) => e.toString(16)).join("-"));
   return t;
-}, f = {
-  detectCodePoints: r,
+}, p = {
+  detectCodePoints: f,
   detectStrings: d,
   EMOJI_REGEX: s
 };
 export {
   s as EMOJI_REGEX,
-  f as default,
-  r as detectCodePoints,
+  p as default,
+  f as detectCodePoints,
   d as detectStrings
 };
